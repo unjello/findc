@@ -1,7 +1,19 @@
-import sys
+import click
+import six
+from output import Out
 
-def run():
-    print(sys.argv[1:])
+@click.command()
+@click.option('-o', '--output', type=click.Choice(['plain', 'yaml', 'json']), help='Output formatting')
+@click.option('-v', '--verbose', count=True)
+def main(output, verbose):
+    """
+    CLI for finding suitable C/C++ compiler on current platform
+    """
+    out = Out(output, verbose)
+    out.write("findc %s" % "0.0.1-dev", bold=True)    
+    
 
 if __name__ == '__main__':
-    run()
+    from os import sys, path
+    sys.path.append(path.dirname(path.dirname(path.abspath(__file__))))
+    main()
