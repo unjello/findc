@@ -3,7 +3,7 @@ import six
 from output import Out
 
 @click.command()
-@click.option('-o', '--output', type=click.Choice(['plain', 'yaml', 'json']), help='Output formatting')
+@click.option('-o', '--output', type=click.Choice(['plain', 'yaml', 'json']), default='plain', help='Output formatting')
 @click.option('-v', '--verbose', count=True)
 def main(output, verbose):
     """
