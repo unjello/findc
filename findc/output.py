@@ -28,4 +28,5 @@ class Out:
 
   def info(self, data, fg=None, bg=None, bold=None, dim=None, underline=None):
     if self._can('info'):
+      click.secho("info ", fg="green", dim=True, nl=False)
       click.secho(data, fg=fg, bg=bg, bold=bold, dim=dim, underline=underline)
