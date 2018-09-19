@@ -1,5 +1,5 @@
 import re
-from subprocess import check_output
+from subprocess import check_output, STDOUT
 
 _command_candidate_patterns = ['/usr/bin/gcc','/usr/bin/g++', '/usr/bin/clang', '/usr/bin/clang++']
 _find_apple_llvm_version='^Apple LLVM version ([0-9\.]+)'
@@ -13,7 +13,7 @@ def _detect_apple_llvm(command, out=None):
       out.trace("%s is not valid command candidate" % command)
     return None
 
-  output = check_output([command, "--version"])
+  output = check_output([command, "--version"], stderr=STDOUT)
   match = re.search(_find_apple_llvm_version, output)
   if not match:
     if out:
