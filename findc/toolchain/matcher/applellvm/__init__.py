@@ -20,7 +20,7 @@ def _detect_apple_llvm(command, out=None):
       out.trace("%s is not Apple LLVM compiler" % command)
     return None
 
-  out.info("Found Apple LLVM compiler version %s in %s" % (match.group(1), command))
+  out.info("%s: found Apple LLVM compiler version %s" % (command, match.group(1)))
   meta = {
     "tool": "applellvm",
     "path": command,
