@@ -1,9 +1,9 @@
 import click
 
 _verbosity_levels = {
-  'info': 0,
-  'debug': 1,
-  'trace': 2
+  'info': 1,
+  'debug': 2,
+  'trace': 3
 }
 
 
