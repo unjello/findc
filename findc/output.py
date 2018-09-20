@@ -22,21 +22,21 @@ class Out:
   def _can(self, level):
     return self._plain() and self._is(level)
 
-  def write(self, data, fg=None, bg=None, bold=None, dim=None, underline=None):
+  def write(self, data, **style):
     if self._plain():
-      click.secho(data, fg=fg, bg=bg, bold=bold, dim=dim, underline=underline)
+      click.secho(data, **style)
 
-  def info(self, data, fg=None, bg=None, bold=None, dim=None, underline=None):
+  def info(self, data, **style):
     if self._can('info'):
       click.secho("info ", fg='green', nl=False)
-      click.secho(data, fg=fg, bg=bg, bold=bold, dim=dim, underline=underline)
+      click.secho(data, **style)
 
-  def debug(self, data, fg=None, bg=None, bold=None, dim=None, underline=None):
+  def debug(self, data, **style):
     if self._can('debug'):
       click.secho("debg ", fg='green', nl=False)
-      click.secho(data, fg=fg, bg=bg, dim=True, bold=bold, underline=underline)
+      click.secho(data, **style)
 
-  def trace(self, data, fg=None, bg=None, bold=None, dim=None, underline=None):
+  def trace(self, data, **style):
     if self._can('trace'):
       click.secho("trac ", fg='white', dim=True, nl=False)
-      click.secho(data, fg=fg, bg=bg, bold=bold, dim=dim, underline=underline)
+      click.secho(data, **style)
