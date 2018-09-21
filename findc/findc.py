@@ -26,7 +26,7 @@ def main(output, verbose):
       for plugin in plugins:
         m = plugins[plugin].run(file, out)
         if m:
-          meta.append(m)
+          meta.extend(m)
     print_toolchains(meta, output)
 
 if __name__ == '__main__':
