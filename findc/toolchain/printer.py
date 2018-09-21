@@ -2,7 +2,7 @@ import yaml
 import json
 
 _print_format='{:25}{:15}{:10}'
-_allowed_keys = ['path', 'tool', 'version']
+_allowed_keys = ['path', 'tool', 'version', 'options']
 
 def _fiter_out_meta(meta):
   result = []
