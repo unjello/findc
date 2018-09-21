@@ -1,4 +1,5 @@
 import yaml
+import json
 
 _print_format='{:25}{:15}{:10}'
 _allowed_keys = ['path', 'tool', 'version']
@@ -18,7 +19,7 @@ def _output_yaml(meta):
   print yaml.dump(meta, default_flow_style=False)
 
 def _output_json(meta):
-  pass
+   print json.dumps(meta, sort_keys=True, indent=2, separators=(',', ': '))
 
 def print_toolchains(meta, output):
   meta = _fiter_out_meta(meta)
