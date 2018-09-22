@@ -48,8 +48,7 @@ def _detect_apple_llvm(command, out=None):
     "tool": "applellvm",
     "path": command,
     "version": version,
-    "options": options,
-    "raw_version_output": output
+    "options": options
   }
   return meta
 
