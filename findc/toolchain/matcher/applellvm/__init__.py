@@ -18,7 +18,7 @@ def _detect_apple_llvm_options(command):
     })
   return options
 
-def _detect_apple_llvm_version(command):
+def _detect_apple_llvm_version(command, out=None):
   output = check_output([command, "--version"], stderr=STDOUT)
   match = re.search(_find_apple_llvm_version, output)
   if not match:
@@ -37,7 +37,7 @@ def _detect_apple_llvm(command, out=None):
     return None
 
   
-  version = _detect_apple_llvm_version(command)
+  version = _detect_apple_llvm_version(command, out)
   if not version:
     return None
 
