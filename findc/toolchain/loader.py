@@ -17,7 +17,8 @@ def get_plugins(out, folder=None, desc=None, main=None):
         if not os.path.isdir(location) or not main + ".py" in os.listdir(location):
             continue
         info = imp.find_module(main, [location])
-        plugin = imp.load_module(main, *info)
+        plugin = imp.load_module(i, *info)
         plugins[i] = plugin
         out.trace("Registering %s plugin: %s" % (click.style(desc, fg="yellow"), click.style(i, fg="green")))
+    print plugins
     return plugins
