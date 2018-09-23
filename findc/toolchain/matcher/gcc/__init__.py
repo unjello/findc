@@ -20,15 +20,15 @@ def _is_it_really_gnu(command, patterns, out=None):
       if not _is_it_clang_in_gcc_clothing(command):
         return True
       else:
-        out.trace("[gcc] {}: Found Clang in GCC's clothing".format(command))
+        out.trace("[gnuc] {}: Found Clang in GCC's clothing".format(command))
   return False
   
 def _detect_gcc_version(command, out=None):
   output = check_output([command, "--version"], stderr=STDOUT)
   match = re.search(_gcc_version_pattern, output)
   if not match:
-    out.warning("[gcc] {}: could not find version string".format(command))
-    out.debug("[gcc] {}: {}".format(command, output))
+    out.warning("[gnuc]  {}: could not find version string".format(command))
+    out.debug("[gnuc] {}: {}".format(command, output))
     return "unknown"
   return match.group(2)
 
@@ -38,11 +38,11 @@ def _detect_gcc(command, out=None):
 
   if not _is_it_really_gnu(command, _command_candidate_patterns, out):
     if out:
-      out.trace("[gcc] %s is not GNU Compiler" % command)
+      out.trace("[gnuc] %s is not GNU Compiler" % command)
     return None
 
   version=_detect_gcc_version(command, out)
-  out.info("[gcc] {}: found GNU Compiler version {}".format(command, version))
+  out.info("[gnuc] {}: found GNU Compiler version {}".format(command, version))
 
   options=[]
   meta = {

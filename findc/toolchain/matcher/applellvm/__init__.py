@@ -23,7 +23,7 @@ def _detect_apple_llvm_version(command, out=None):
   match = re.search(_find_apple_llvm_version, output)
   if not match:
     if out:
-      out.trace("%s is not Apple LLVM compiler" % command)
+      out.trace("[appl] %s is not Apple LLVM compiler" % command)
     return None
   return match.group(1)
 
@@ -33,7 +33,7 @@ def _detect_apple_llvm(command, out=None):
 
   if command not in _command_candidate_patterns:
     if out:
-      out.trace("%s is not valid command candidate" % command)
+      out.trace("[appl] %s is not valid command candidate" % command)
     return None
 
   
@@ -43,7 +43,7 @@ def _detect_apple_llvm(command, out=None):
 
   options = _detect_apple_llvm_options(command)
 
-  out.info("%s: found Apple LLVM compiler version %s" % (command, version))
+  out.info("[appl] %s: found Apple LLVM compiler version %s" % (command, version))
   meta = {
     "tool": "applellvm",
     "path": command,
