@@ -53,9 +53,7 @@ def _detect_apple_llvm(command, out=None):
   return meta
 
 def run(command, out=None):
-  result = []
-  for f in [_detect_apple_llvm]:
-    ret = f(command, out)
-    if ret:
-      result.append(ret)
-  return result
+  ret = _detect_apple_llvm(command, out)
+  if ret:
+    return [ret]
+  return None
