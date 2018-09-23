@@ -2,7 +2,7 @@ import re
 from subprocess import check_output, STDOUT
 
 _command_candidate_patterns = ['/usr/bin/gcc','/usr/bin/g++', '/usr/bin/clang', '/usr/bin/clang++']
-_find_apple_llvm_version='^Apple LLVM version ([0-9\.]+)'
+_find_apple_llvm_version='Apple LLVM version ([0-9\.]+)'
 _find_apple_llvm_options='\s+--?([A-Za-z0-9#\-\+]+)((([\s,]*)|=)<([^>]+)>)?\s*([^\n]+)'
 
 
