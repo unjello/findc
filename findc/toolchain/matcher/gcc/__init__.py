@@ -38,7 +38,7 @@ def _detect_gcc(command, out=None):
 
   if not _is_it_really_gnu(command, _command_candidate_patterns, out):
     if out:
-      out.trace("[gnuc] %s is not GNU Compiler" % command)
+      out.trace("[gnuc] {} is not GNU Compiler".format(command))
     return None
 
   version=_detect_gcc_version(command, out)
