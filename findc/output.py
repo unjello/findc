@@ -40,3 +40,8 @@ class Out:
     if self._can('trace'):
       click.secho("trac ", fg='white', dim=True, nl=False)
       click.secho(data, **style)
+
+  def warning(self, data, **style):
+    if self._plain():
+      click.secho("warn ", fg='yellow', nl=False)
+      click.secho(data, **style)
