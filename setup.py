@@ -17,18 +17,18 @@ def get_requires(filename):
     return requirements
 
 
-project_requirements = get_requires("gb/requirements.txt")
-dev_requirements = get_requires("gb/requirements_dev.txt")
+project_requirements = get_requires("findc/requirements.txt")
+dev_requirements = get_requires("findc/requirements_dev.txt")
 
 setup(
-    name='gb',
+    name='findc',
     version='0.0.1',
     description='Finds suitable C/C++ compiler for current platform',
     long_description=long_description,
     long_description_content_type='text/markdown',
     url='https://github.com/unjello/findc',
     author='Andrzej Lichnerowicz',
-    author_email='andrzej@lichnerowicz.pl',§
+    author_email='andrzej@lichnerowicz.pl',
     classifiers=[  
         'Development Status :: 3 - Alpha',
         'Intended Audience :: Developers',
@@ -43,15 +43,15 @@ setup(
     packages=find_packages(exclude=['contrib', 'docs', 'tests']),
     install_requires=project_requirements,
     extras_require={  
-        'dev': dev_requirements
+        'dev': dev_requirements,
         'test': dev_requirements,
     },
     package_data={
-        'gb': ['*.txt'],
+        '': ['LICENSE'],
     },
     entry_points={
         'console_scripts': [
-            'gb=gb.gb:run',
+            'findc=findc.findc:run',
         ],
     },
     project_urls={
