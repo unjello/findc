@@ -1,2 +1,7 @@
 *~
 *.pyc
+
+# wheel dirs
+build/
+dist/
+findc.egg-info/
