@@ -17,12 +17,12 @@ def get_requires(filename):
     return requirements
 
 
-project_requirements = get_requires("findc/requirements.txt")
-dev_requirements = get_requires("findc/requirements_dev.txt")
+project_requirements = get_requires("find_compiler/requirements.txt")
+dev_requirements = get_requires("find_compiler/requirements_dev.txt")
 
 setup(
-    name='findc',
-    version='0.0.1',
+    name='find_compiler',
+    version='0.0.2',
     description='Finds suitable C/C++ compiler for current platform',
     long_description=long_description,
     long_description_content_type='text/markdown',
@@ -51,7 +51,7 @@ setup(
     },
     entry_points={
         'console_scripts': [
-            'findc=findc.findc:run',
+            'findc=find_compiler.findc:run',
         ],
     },
     project_urls={
