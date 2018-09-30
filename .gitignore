@@ -4,4 +4,4 @@
 # wheel dirs
 build/
 dist/
-findc.egg-info/
+find_compiler.egg-info/

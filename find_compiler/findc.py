@@ -11,7 +11,7 @@ def main(output, verbose):
     CLI for finding suitable C/C++ compiler on current platform
     """
     out = Out(output, verbose)
-    out.write("findc %s" % "0.0.1-dev", bold=True)    
+    out.write("findc %s" % "0.0.2", bold=True)    
     
     from toolchain.loader import get_plugins
     from find import find_match_in_path
@@ -19,7 +19,7 @@ def main(output, verbose):
     from toolchain.printer import print_toolchains
     
     files = detect_toolchains(out)
-    plugins = get_plugins(out, folder="./findc/toolchain/matcher", desc="compiler-matcher")
+    plugins = get_plugins(out, folder="./find_compiler/toolchain/matcher", desc="compiler-matcher")
 
     meta = []
     for file in files:
