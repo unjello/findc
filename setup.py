@@ -51,7 +51,7 @@ setup(
     },
     entry_points={
         'console_scripts': [
-            'findc=find_compiler.findc:run',
+            'findc=find_compiler.findc:main',
         ],
     },
     project_urls={
