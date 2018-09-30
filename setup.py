@@ -22,7 +22,7 @@ dev_requirements = get_requires("find_compiler/requirements_dev.txt")
 
 setup(
     name='find_compiler',
-    version='0.0.2',
+    version='0.0.4',
     description='Finds suitable C/C++ compiler for current platform',
     long_description=long_description,
     long_description_content_type='text/markdown',

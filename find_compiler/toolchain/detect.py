@@ -1,4 +1,4 @@
-from find import find_match_in_path
+from find_compiler.find import find_match_in_path
 
 def detect_toolchains(out):
   tools = []

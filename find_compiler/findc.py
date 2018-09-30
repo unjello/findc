@@ -11,7 +11,7 @@ def main(output, verbose):
     CLI for finding suitable C/C++ compiler on current platform
     """
     out = Out(output, verbose)
-    out.write("findc %s" % "0.0.2", bold=True)    
+    out.write("findc %s" % "0.0.4", bold=True)    
     
     from toolchain.loader import get_plugins
     from find import find_match_in_path
