@@ -16,10 +16,10 @@ def _output_plain(meta):
     print(_print_format.format(m['path'], m['tool'], m['version']))
 
 def _output_yaml(meta):
-  print yaml.dump(meta, default_flow_style=False)
+  print(yaml.dump(meta, default_flow_style=False))
 
 def _output_json(meta):
-   print json.dumps(meta, sort_keys=True, indent=2, separators=(',', ': '))
+   print(json.dumps(meta, sort_keys=True, indent=2, separators=(',', ': ')))
 
 def print_toolchains(meta, output):
   meta = _fiter_out_meta(meta)
