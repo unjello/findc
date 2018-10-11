@@ -1,5 +1,5 @@
 import re
-from subprocess import check_output, STDOUT
+from find_compiler.utils.subprocess import get_output
 
 # [^a-zA-Z] before g++ patterns is there to exclude clang++ from matching, so that /g++ or \g++.exe can only match.
 # it could be done by splitting path, and taking only last part
@@ -8,7 +8,7 @@ _apple_llvm_pattern='Apple LLVM version ([0-9\.]+)'
 _gcc_version_pattern='g(cc|\+\+)[^(]+\([^)]+\)\s+(\d+\.\d+\.\d+)'
 
 def _is_it_clang_in_gcc_clothing(command):
-  output = check_output([command, "--version"], stderr=STDOUT)
+  output = get_output([command, "--version"])
   match = re.search(_apple_llvm_pattern, output)
   if match:
     return True
@@ -24,7 +24,7 @@ def _is_it_really_gnu(command, patterns, out=None):
   return False
   
 def _detect_gcc_version(command, out=None):
-  output = check_output([command, "--version"], stderr=STDOUT)
+  output = get_output([command, "--version"])
   match = re.search(_gcc_version_pattern, output)
   if not match:
     out.warning("[gnuc]  {}: could not find version string".format(command))

@@ -1,5 +1,5 @@
 import re
-from subprocess import check_output, STDOUT
+from find_compiler.utils.subprocess import get_output
 
 _command_candidate_patterns = ['/usr/bin/gcc','/usr/bin/g++', '/usr/bin/clang', '/usr/bin/clang++']
 _find_apple_llvm_version='Apple LLVM version ([0-9\.]+)'
@@ -7,7 +7,7 @@ _find_apple_llvm_options='\s+--?([A-Za-z0-9#\-\+]+)((([\s,]*)|=)<([^>]+)>)?\s*([
 
 
 def _detect_apple_llvm_options(command):
-  output = check_output([command, "--help"], stderr=STDOUT)
+  output = get_output([command, "--help"])
   match = re.findall(_find_apple_llvm_options, output)
   options = []
   for m in match:
@@ -19,7 +19,7 @@ def _detect_apple_llvm_options(command):
   return options
 
 def _detect_apple_llvm_version(command, out=None):
-  output = check_output([command, "--version"], stderr=STDOUT)
+  output = get_output([command, "--version"])
   match = re.search(_find_apple_llvm_version, output)
   if not match:
     if out:

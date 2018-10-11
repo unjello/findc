@@ -1,12 +1,12 @@
 import re
-from subprocess import check_output, STDOUT
+from find_compiler.utils.subprocess import get_output
 
 _command_candidate_patterns = ['clang(\.exe)?$','clang-[A-Za-z0-9]+(\.exe)?$', 'clang\+\+(\.exe)?$', 'clang\+\+-[A-Za-z0-9]+(\.exe)?$']
 _apple_llvm_pattern='Apple LLVM version ([0-9\.]+)'
 _clang_version_pattern='clang version (\d\.\d\.\d[^\s]*)'
 
 def _is_it_apple_clang(command):
-  output = check_output([command, "--version"], stderr=STDOUT)
+  output = get_output([command, "--version"])
   match = re.search(_apple_llvm_pattern, output)
   if match:
     return True
@@ -22,7 +22,7 @@ def _is_it_really_clang(command, patterns, out=None):
   return False
 
 def _detect_clang_version(command, out=None):
-  output = check_output([command, "--version"], stderr=STDOUT)
+  output = get_output([command, "--version"])
   match = re.search(_clang_version_pattern, output)
   if not match:
     out.warning("[clng]  {}: could not find version string".format(command))
