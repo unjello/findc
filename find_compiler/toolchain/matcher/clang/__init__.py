@@ -1,7 +1,7 @@
 import re
 from utils.subprocess import get_output
 
-_command_candidate_patterns = ['clang(\.exe)?$','clang-[A-Za-z0-9]+(\.exe)?$', 'clang\+\+(\.exe)?$', 'clang\+\+-[A-Za-z0-9]+(\.exe)?$']
+_command_candidate_patterns = ['clang(\.exe)?$','clang-[A-Za-z0-9]*[0-9]+(\.exe)?$', 'clang\+\+(\.exe)?$', 'clang\+\+-[A-Za-z0-9]*[0-9]+(\.exe)?$']
 _apple_llvm_pattern='Apple LLVM version ([0-9\.]+)'
 _clang_version_pattern='clang version (\d\.\d\.\d[^\s]*)'
 
