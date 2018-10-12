@@ -1,6 +1,6 @@
 # findc
 
-Finds avilable C/C++ compilers for current platform 
+Finds avilable C/C++ compilers for current platform
 
 ## Usage
 

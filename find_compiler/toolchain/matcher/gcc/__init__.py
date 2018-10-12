@@ -22,7 +22,7 @@ def _is_it_really_gnu(command, patterns, out=None):
       else:
         out.trace("[gnuc] {}: Found Clang in GCC's clothing".format(command))
   return False
-  
+
 def _detect_gcc_version(command, out=None):
   output = get_output([command, "--version"])
   match = re.search(_gcc_version_pattern, output)

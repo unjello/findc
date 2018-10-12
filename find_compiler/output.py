@@ -15,7 +15,7 @@ class Out:
 
   def _is(self, level):
     return self.verbosity >= _verbosity_levels[level]
-  
+
   def _plain(self):
     return self.outputFormat == 'plain'
 

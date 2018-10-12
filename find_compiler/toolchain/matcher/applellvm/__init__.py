@@ -36,7 +36,7 @@ def _detect_apple_llvm(command, out=None):
       out.trace("[appl] {} is not valid command candidate".format(command))
     return None
 
-  
+
   version = _detect_apple_llvm_version(command, out)
   if not version:
     return None
