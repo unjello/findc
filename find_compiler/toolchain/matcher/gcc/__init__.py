@@ -1,5 +1,5 @@
 import re
-from find_compiler.utils.subprocess import get_output
+from utils.subprocess import get_output
 
 # [^a-zA-Z] before g++ patterns is there to exclude clang++ from matching, so that /g++ or \g++.exe can only match.
 # it could be done by splitting path, and taking only last part

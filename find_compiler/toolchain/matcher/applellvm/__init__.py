@@ -1,5 +1,5 @@
 import re
-from find_compiler.utils.subprocess import get_output
+from utils.subprocess import get_output
 
 _command_candidate_patterns = ['/usr/bin/gcc','/usr/bin/g++', '/usr/bin/clang', '/usr/bin/clang++']
 _find_apple_llvm_version='Apple LLVM version ([0-9\.]+)'

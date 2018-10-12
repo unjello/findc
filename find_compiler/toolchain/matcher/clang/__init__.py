@@ -1,5 +1,5 @@
 import re
-from find_compiler.utils.subprocess import get_output
+from utils.subprocess import get_output
 
 _command_candidate_patterns = ['clang(\.exe)?$','clang-[A-Za-z0-9]+(\.exe)?$', 'clang\+\+(\.exe)?$', 'clang\+\+-[A-Za-z0-9]+(\.exe)?$']
 _apple_llvm_pattern='Apple LLVM version ([0-9\.]+)'
