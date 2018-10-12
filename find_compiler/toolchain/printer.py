@@ -22,9 +22,12 @@ def _adjust_print_format(meta):
 
 def _output_plain(meta):
   fmt = _adjust_print_format(meta)
-  print(fmt.format('PATH', 'TOOLCHAIN', 'VERSION'))
-  for m in meta:
-    print(fmt.format(m['path'], m['tool'], m['version']))
+  if len(meta):
+    print(fmt.format('PATH', 'TOOLCHAIN', 'VERSION'))
+    for m in meta:
+      print(fmt.format(m['path'], m['tool'], m['version']))
+  else:
+    print("No compilers found.")
 
 def _output_yaml(meta):
   print(yaml.dump(meta, default_flow_style=False))
