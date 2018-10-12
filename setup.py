@@ -2,6 +2,7 @@
 from setuptools import setup, find_packages
 from os import path
 from io import open
+from find_compiler import __version__ as findc_version
 
 here = path.abspath(path.dirname(__file__))
 
@@ -22,7 +23,7 @@ dev_requirements = get_requires("find_compiler/requirements_dev.txt")
 
 setup(
     name='find_compiler',
-    version='0.0.4',
+    version=findc_version,
     description='Finds suitable C/C++ compiler for current platform',
     long_description=long_description,
     long_description_content_type='text/markdown',
