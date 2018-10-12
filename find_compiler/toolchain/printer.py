@@ -7,7 +7,7 @@ _allowed_keys = ['path', 'tool', 'version', 'options']
 def _fiter_out_meta(meta):
   result = []
   for m in meta:
-    result.append({k:v for k,v in m.iteritems() if k in _allowed_keys})
+    result.append({k:v for k,v in m.items() if k in _allowed_keys})
   return result
 
 def _output_plain(meta):
