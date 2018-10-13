@@ -10,7 +10,9 @@ msvc_search_path = [
   "C:\\Program Files (x86)\\Microsoft Visual Studio\\2017\\Enterprise\\VC\\Tools\\MSVC\\14.15.26726\\bin\\Hostx64\\x64",
   "C:\\Program Files (x86)\\Microsoft Visual Studio\\2017\\Enterprise\\VC\\Tools\\MSVC\\14.15.26726\\bin\\Hostx64\\x86",
   "C:\\Program Files (x86)\\Microsoft Visual Studio\\2017\\Enterprise\\VC\\Tools\\MSVC\\14.15.26726\\bin\\Hostx86\\x64",
-  "C:\\Program Files (x86)\\Microsoft Visual Studio\\2017\\Enterprise\\VC\\Tools\\MSVC\\14.15.26726\\bin\\Hostx64\\x86"
+  "C:\\Program Files (x86)\\Microsoft Visual Studio\\2017\\Enterprise\\VC\\Tools\\MSVC\\14.15.26726\\bin\\Hostx64\\x86",
+  "C:\\Program Files (x86)\\Microsoft Visual Studio\\2017\\Enterprise\\VC\\Tools\\ClangC2\\14.10.25903\\bin\\HostX64",
+  "C:\\Program Files (x86)\\Microsoft Visual Studio\\2017\\Enterprise\\VC\\Tools\\ClangC2\\14.10.25903\\bin\\HostX86",
 ]
 
 def find_match_in_path(name, path=None):
