@@ -5,8 +5,7 @@ _command_candidate_patterns = ['clang(\.exe)?$','clang-[A-Za-z0-9]*[0-9]+(\.exe)
 _apple_llvm_pattern='Apple LLVM version ([0-9\.]+)'
 _clang_version_pattern='clang version (\d\.\d\.\d[^\s]*)'
 
-def _is_it_apple_clang(command):
-  output = get_output([command, "--version"])
+def _is_it_apple_clang(output):
   match = re.search(_apple_llvm_pattern, output)
   if match:
     return True
@@ -15,7 +14,8 @@ def _is_it_apple_clang(command):
 def _is_it_really_clang(command, patterns, out=None):
   for pattern in patterns:
     if re.search(pattern, command):
-      if not _is_it_apple_clang(command):
+      output = get_output([command, "--version"])
+      if not _is_it_apple_clang(output):
         return True
       else:
         out.trace("[clng] {}: It is Apple LLVM Clang. Aborting.".format(command))
