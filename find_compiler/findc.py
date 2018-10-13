@@ -1,3 +1,7 @@
+if __name__ == '__main__':
+    from os import sys, path
+    sys.path.append(path.dirname(path.dirname(path.abspath(__file__))))
+
 import click
 import six
 from find_compiler.output import Out
@@ -31,8 +35,4 @@ def main(output, verbose):
     print_toolchains(meta, output)
 
 if __name__ == '__main__':
-    from os import sys, path
-    module_dir = path.dirname(path.dirname(path.abspath(__file__)))
-    sys.path.append(module_dir)
-    sys.path.append(path.dirname(module_dir))
     main()
