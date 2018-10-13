@@ -20,7 +20,7 @@ def _is_it_really_clang(command, patterns, out=None):
       if not _is_it_different_clang(output, [_apple_llvm_pattern, _clangc2_pattern]):
         return True
       else:
-        out.trace("[clng] {}: It is Apple LLVM Clang. Aborting.".format(command))
+        out.trace("[clng] {}: It is not vanilla Clang (e.g. Apple, or ClangC2). Aborting.".format(command))
   return False
 
 def _detect_clang_version(command, out=None):
