@@ -3,6 +3,7 @@ from utils.subprocess import get_output
 
 _command_candidate_patterns = ['clang(\.exe)?$','clang-[A-Za-z0-9]*[0-9]+(\.exe)?$', 'clang\+\+(\.exe)?$', 'clang\+\+-[A-Za-z0-9]*[0-9]+(\.exe)?$']
 _apple_llvm_pattern='Apple LLVM version ([0-9\.]+)'
+_clangc2_pattern='clang with Microsoft CodeGen'
 _clang_version_pattern='clang version (\d\.\d\.\d[^\s]*)'
 
 def _is_it_apple_clang(output):
@@ -11,11 +12,17 @@ def _is_it_apple_clang(output):
     return True
   return False
 
+def _is_it_clangc2(output):
+  match = re.search(_clangc2_pattern, output)
+  if match:
+    return True
+  return False
+
 def _is_it_really_clang(command, patterns, out=None):
   for pattern in patterns:
     if re.search(pattern, command):
       output = get_output([command, "--version"])
-      if not _is_it_apple_clang(output):
+      if not (_is_it_apple_clang(output) or _is_it_clangc2(output)):
         return True
       else:
         out.trace("[clng] {}: It is Apple LLVM Clang. Aborting.".format(command))
