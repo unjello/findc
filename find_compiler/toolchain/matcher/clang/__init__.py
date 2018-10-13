@@ -6,23 +6,18 @@ _apple_llvm_pattern='Apple LLVM version ([0-9\.]+)'
 _clangc2_pattern='clang with Microsoft CodeGen'
 _clang_version_pattern='clang version (\d\.\d\.\d[^\s]*)'
 
-def _is_it_apple_clang(output):
-  match = re.search(_apple_llvm_pattern, output)
-  if match:
-    return True
-  return False
-
-def _is_it_clangc2(output):
-  match = re.search(_clangc2_pattern, output)
-  if match:
-    return True
+def _is_it_different_clang(output, patterns):
+  for pattern in patterns:
+    match = re.search(pattern, output)
+    if match:
+      return True
   return False
 
 def _is_it_really_clang(command, patterns, out=None):
   for pattern in patterns:
     if re.search(pattern, command):
       output = get_output([command, "--version"])
-      if not (_is_it_apple_clang(output) or _is_it_clangc2(output)):
+      if not _is_it_different_clang(output, [_apple_llvm_pattern, _clangc2_pattern]):
         return True
       else:
         out.trace("[clng] {}: It is Apple LLVM Clang. Aborting.".format(command))
