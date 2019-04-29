@@ -1,0 +1,5 @@
+image::http://unmaintained.tech/badge.svg[link=http://unmaintained.tech/]
+
+= DEPRECATED
+
+findc is no longer supported.
